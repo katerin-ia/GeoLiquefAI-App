@@ -69,22 +69,20 @@ Instalación y Ejecución
 
 Siga estos 3 pasos para ejecutar la aplicación en su máquina local.
 
-Paso 1: Configurar el Entorno
+#### Paso 1: Configurar el Entorno
 
 Se recomienda crear un entorno virtual para este proyecto.
 
-# Clone este repositorio (si aplica)
-# ...
+### Clone este repositorio (si aplica)
 
-# Cree un entorno virtual (recomendado)
+### Cree un entorno virtual (recomendado)
 python -m venv venv
 source venv/bin/activate  # En Windows use: venv\Scripts\activate
 
-# Instale todas las dependencias
+### Instale todas las dependencias
 pip install -r requirements.txt
 
-
-Paso 2: Entrenar el Modelo
+#### Paso 2: Entrenar el Modelo
 
 Antes de ejecutar la aplicación, debe generar los archivos modelo_rf.joblib y scaler.joblib. El script save_model.py lo hace automáticamente usando los datos de mmc2.csv.
 
@@ -95,7 +93,7 @@ python save_model.py
 
 Debería ver un mensaje de "¡Entrenamiento y guardado completados!" en su terminal.
 
-Paso 3: Ejecutar la Aplicación
+#### Paso 3: Ejecutar la Aplicación
 
 Una vez que los modelos estén generados, inicie la aplicación de Streamlit:
 
