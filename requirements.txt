@@ -6,3 +6,4 @@ openpyxl
 xlrd
 numpy
 shap
+matplotlib
