@@ -371,12 +371,15 @@ def main():
             with inter_col2:
                 st.markdown("<h5>Inteligencia Artificial (IA)</h5>", unsafe_allow_html=True) # CAMBIO: Tamaño de fuente
                 if proba_ia is not None:
-                    if risk_label_ia == "Alto Riesgo":
-                        st.error(f"**Resultado: {risk_label_ia} ({proba_ia*100:.1f}%)**\n\nLa IA tiene alta confianza de que este escenario es peligroso, basándose en patrones de casos históricos de falla.")
+                    # Lógica actualizada para las 4 etiquetas de riesgo
+                    if risk_label_ia == "Riesgo Muy Alto":
+                        st.error(f"**Resultado: {risk_label_ia} ({proba_ia*100:.1f}%)**\n\nLa IA tiene **muy alta confianza** de que el escenario es peligroso (Prob. > 80%), basándose en patrones de falla históricos.")
+                    elif risk_label_ia == "Riesgo Alto":
+                        st.warning(f"**Resultado: {risk_label_ia} ({proba_ia*100:.1f}%)**\n\nLa IA detecta un **riesgo significativo** (Prob. 50-80%). Se requiere precaución y validar con el FS.")
                     elif risk_label_ia == "Riesgo Moderado":
-                        st.warning(f"**Resultado: {risk_label_ia} ({proba_ia*100:.1f}%)**\n\nLa IA no está segura. Los parámetros coinciden tanto con casos de falla como de no-falla. Se recomienda precaución.")
-                    else:
-                        st.success(f"**Resultado: {risk_label_ia} ({proba_ia*100:.1f}%)**\n\nLa IA tiene alta confianza de que este escenario es seguro.")
+                        st.info(f"**Resultado: {risk_label_ia} ({proba_ia*100:.1f}%)**\n\nLa IA predice una **probabilidad intermedia** (Prob. 20-50%). Los parámetros coinciden con casos mixtos.")
+                    else: # Asume que es "Riesgo Bajo"
+                        st.success(f"**Resultado: {risk_label_ia} ({proba_ia*100:.1f}%)**\n\nLa IA tiene **alta confianza** de que este escenario es seguro (Prob. < 20%).")
                 else:
                     st.error("No se pudo calcular la predicción de IA.")
 
