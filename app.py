@@ -37,13 +37,20 @@ def load_artifacts():
         st.stop()
 
 def classify_risk(prob):
-    """Clasifica la probabilidad de la IA en etiquetas de riesgo."""
-    if prob >= 0.65:
-        return "Alto Riesgo"
-    elif prob >= 0.35:
+    """
+    Clasifica la probabilidad de licuefacción (0.0 a 1.0) en etiquetas de riesgo
+    basadas en la escala provista.
+    """
+    # La probabilidad (prob) debe estar entre 0.0 y 1.0
+
+    if prob >= 0.80:
+        return "Riesgo Muy Alto" 
+    elif prob >= 0.50:
+        return "Riesgo Alto" 
+    elif prob >= 0.20:
         return "Riesgo Moderado"
-    else:
-        return "Bajo Riesgo"
+    else: # Esto cubre el rango de 0.00 a 0.199... (0-20%)
+        return "Riesgo Bajo"
 
 def classify_fs(fs):
     """Clasifica el Factor de Seguridad (FS) en etiquetas de riesgo."""
