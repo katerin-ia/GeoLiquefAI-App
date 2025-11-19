@@ -1,9 +1,5 @@
 GeoLiquefAI: Evaluador de Riesgo de Licuefacción
 
-Autora
-
-Este proyecto fue desarrollado por Katerin De La Cruz Alvarez.
-
 Resumen
 
 GeoLiquefAI es una aplicación web en Streamlit para la evaluación preliminar del riesgo de licuefacción de suelos.
